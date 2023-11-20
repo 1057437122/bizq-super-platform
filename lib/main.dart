@@ -1,5 +1,7 @@
 import 'package:bizqplatform/pages/index_screen/index.dart';
+import 'package:bizqplatform/statements/super/super_body_index/super_body_index_cubit.dart';
 import 'package:bizqplatform/statements/super/super_screen_body/super_screen_body_cubit.dart';
+import 'package:bizqplatform/statements/super/verification/verification_cubit.dart';
 import 'package:bizqplatform/statements/tips/tips_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,6 +15,8 @@ void main() async {
   await initServiceLocator();
   runApp(MultiBlocProvider(
     providers: [
+      BlocProvider(create: (context) => SuperBodyIndexCubit()),
+      BlocProvider(create: (context) => VerificationCubit()),
       BlocProvider(create: (context) => SuperScreenBodyCubit()),
       BlocProvider(create: (context) => SecureGuardCubit()),
       BlocProvider(create: (context) => SignInCubit()),

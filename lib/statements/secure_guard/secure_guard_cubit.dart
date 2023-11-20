@@ -1,5 +1,6 @@
 import 'package:bizqplatform/config/app_config.dart';
 import 'package:bizqplatform/services/service_locator.dart';
+import 'package:bizqplatform/statements/local_value/local_value_notifier.dart';
 import 'package:bizqplatform/statements/secure_guard/secure_guard_state.dart';
 import 'package:bloc/bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -12,6 +13,7 @@ class SecureGuardCubit extends Cubit<SecureGuardState> {
       // get token from local storage
       String? token = getIt<SharedPreferences>().getString(AppConfig.tokenFlag);
       if (token != null) {
+        localToken.value = token;
         emit(SecureGuardGranted(token));
         return;
       }

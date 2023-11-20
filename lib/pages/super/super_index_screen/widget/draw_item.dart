@@ -1,12 +1,10 @@
-import 'package:bizqplatform/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class DrawItem extends StatefulWidget {
   final Widget child;
+  final Function onTap;
 
-  const DrawItem({required this.child, super.key});
+  const DrawItem({required this.child, required this.onTap, super.key});
 
   @override
   State<DrawItem> createState() => _DrawItemState();
@@ -18,7 +16,7 @@ class _DrawItemState extends State<DrawItem> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        //
+        widget.onTap();
       },
       onHover: (value) {
         setState(() {

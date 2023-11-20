@@ -1,4 +1,3 @@
-import 'package:bizqplatform/model/tip_model.dart';
 import 'package:bizqplatform/pages/sign_in_screen/sign_in.dart';
 import 'package:bizqplatform/pages/super/super_index_screen/super_index_screen.dart';
 import 'package:bizqplatform/pages/utils.dart';
@@ -29,7 +28,7 @@ class IndexScreen extends StatelessWidget {
           if (secureState is SecureGuardDenied) {
             return const SignInScreen();
           }
-          return const SuperIndexScreen();
+          return SuperIndexScreen();
         },
       ),
     ));

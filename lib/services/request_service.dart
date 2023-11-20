@@ -2,6 +2,8 @@ import 'package:bizqplatform/config/url_config.dart';
 import 'package:bizqplatform/model/respose_model.dart';
 import 'package:dio/dio.dart';
 
+import '../statements/local_value/local_value_notifier.dart';
+
 class RequestService {
   Dio dio = Dio();
 
@@ -31,7 +33,14 @@ class RequestService {
   }
 
   Future<ResponseModel> fetchData(String url) async {
-    var res = await dio.get(formatUrl(url));
+    var res = await dio.get(
+      formatUrl(url),
+      options: Options(
+        headers: {
+          'authorization': localToken.value,
+        },
+      ),
+    );
     return formatResponse(res);
   }
 

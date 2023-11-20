@@ -64,7 +64,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 },
                 child: signInState is SignInFetching
                     ? const CircularProgressIndicator()
-                    : Text('Sign in'),
+                    : const Text('Sign in'),
               );
             },
           ),
